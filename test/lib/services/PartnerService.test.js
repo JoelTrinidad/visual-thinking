@@ -1,5 +1,10 @@
 const PartnerService = require("./../../../lib/services/PartnerService");
 
 describe("Test for PartnerService", () => {
-
+    test("Get a list of the mails of the partners with certification", () => {
+        const partners = [{email: "Shields@visualpartnership.xyz", haveCertification: true}, {email: "Kerri@visualpartnership.xyz", haveCertification: false},{email: "Dixon@visualpartnership.xyz", haveCertification: true}];
+        const mails = PartnerService.getPartnerMailsWithCertification(partners);
+        
+        expect(mails).toStrictEqual(["Shields@visualpartnership.xyz", "Dixon@visualpartnership.xyz"]);
+    });
 });
