@@ -7,4 +7,11 @@ describe("Test for PartnerService", () => {
         
         expect(mails).toStrictEqual(["Shields@visualpartnership.xyz", "Dixon@visualpartnership.xyz"]);
     });
+
+    test("Get a list of partners who have credits over 500", () => {
+        const partners = [{name: "Tillman", credits: 600}, {name: "Mosley", credits: 529}, {name: "Carolina", credits: 487}, {name: "Monroe", credits: 329}];
+        const partnersOver = PartnerService.getPartnersCreditsGreaterThan(partners, 500);
+        
+        expect(partnersOver).toStrictEqual([{name: "Tillman", credits: 600}, {name: "Mosley", credits: 529}]);
+    });
 });
