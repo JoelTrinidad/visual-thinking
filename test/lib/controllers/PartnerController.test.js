@@ -19,4 +19,16 @@ describe("Test for PartnerController", () => {
         
         expect(mails).toContain("Dixon@visualpartnership.xyz");
     });
+
+    test("Get a list of partners who have credits over 500", () => {
+        const partnersOver = PartnerController.getPartnersCreditsGreaterThan(500);
+        
+        expect(partnersOver).toEqual(
+            expect.arrayContaining([
+                expect.objectContaining({ credits: 769 }),
+                expect.objectContaining({ credits: 529 }),
+                expect.objectContaining({ credits: 600 }),
+            ])
+        );
+    });
 });
