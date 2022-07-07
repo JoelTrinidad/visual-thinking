@@ -1,7 +1,7 @@
 const PartnerController = require("../../../lib/controllers/PartnerController");
 
-describe('Test for PartnerController', () => {
-    test('Get all the partners', () => {
+describe("Test for PartnerController", () => {
+    test("Get all the partners", () => {
         const partners = PartnerController.getPartners();
 
         expect(partners).toEqual(
@@ -17,6 +17,6 @@ describe('Test for PartnerController', () => {
         const partners = [{email: "Shields@visualpartnership.xyz", haveCertification: true}, {email: "Kerri@visualpartnership.xyz", haveCertification: false},{email: "Dixon@visualpartnership.xyz", haveCertification: true}];
         const mails = PartnerController.getPartnerMailsWithCertification(partners);
         
-        expect(mails).toContain("Dixon@visualpartnership.xyz")
+        expect(mails).toContain("Dixon@visualpartnership.xyz");
     });
 });
